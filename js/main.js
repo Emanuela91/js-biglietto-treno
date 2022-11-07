@@ -10,10 +10,12 @@ const costoKm = 0.21;
 const minorenni = 18;
 const anziano = 65;
 
+
 // Percorrenza in Km 
 chilometri = parseInt(prompt("Quanti chilometri vuoi percorrere?"));
 
 console.log(chilometri);
+
 
 // Età del passeggero
 eta = parseInt(prompt("Inserisci la tua età"));
@@ -21,24 +23,32 @@ eta = parseInt(prompt("Inserisci la tua età"));
 console.log(eta);
 
 
-// Costo del biglietto, somma Km e costo al Km
+// Costo del biglietto: somma Km e costo al Km
 costoBiglietto = chilometri * costoKm;
 
 console.log(costoBiglietto);
+
 
 // Costo costo biglietto minorenni e anziani
 costoBigliettoMin = ((chilometri * costoKm) * 0.8);
 costoBigliettoAnz = ((chilometri * costoKm) * 0.6);
 
+
+
 // Costo del biglietto con sconto
-// Minorenne o Anziano
-if(eta >= minorenni && eta < anziano){
-    document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBiglietto}`;
-} else if(eta < minorenni){
-    document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBigliettoMin}`;
+if(eta < minorenni){
+    document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBigliettoMin.toFixed(2)}€`;
 } else if(eta >= anziano){
-    document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBigliettoAnz}`;
+    document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBigliettoAnz.toFixed(2)}€`;
+}else {
+    document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBiglietto.toFixed(2)}€`;
 }
 
-// Riduzione decimali con Parsfloat
-(costoBiglietto.toFixed(1));
+// Oppure questa variante:
+// if(eta >= minorenni && eta < anziano){
+//     document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBiglietto.toFixed(2)}€`;
+// } else if(eta < minorenni){
+//     document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBigliettoMin.toFixed(2)}€`;
+// } else if(eta >= anziano){
+//     document.getElementById("title").innerHTML = `Il costo del tuo biglietto è ${costoBigliettoAnz.toFixed(2)}€`;
+// }
